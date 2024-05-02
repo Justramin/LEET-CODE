@@ -11,10 +11,12 @@ var plusOne = function(digits) {
 //  console.log(dig)
 //     return dig.split('')
     
-     let number = BigInt(digits.join(''));
-    number = number + BigInt(1);
-    let newDigits = number.toString().split('').map(Number);
-    return newDigits
+     let num = digits.join("")
+    num = BigInt(num) + BigInt(1)
+    console.log(num)
+    num = num.toString().split("")
+    
+    return num
 
 
 };
