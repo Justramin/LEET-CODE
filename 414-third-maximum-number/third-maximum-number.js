@@ -3,6 +3,10 @@
  * @return {number}
  */
 var thirdMax = function(nums) {
-  nums = [...new Set(nums)].sort((a, b) => b - a);
-    return nums[2] !== undefined ? nums[2] : nums[0];
+    const ans = [...new Set([...nums])]
+    ans.sort((a,b)=>b-a)
+    if(ans.length<3){
+        return ans[0]
+    }
+    return ans[2]
 };
