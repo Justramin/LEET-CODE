@@ -4,19 +4,17 @@
  * @return {boolean}
  */
 var canConstruct = function(ransomNote, magazine) {
-    if(ransomNote.length>magazine.length){
-        return false
+    let magazineCount ={}
+    for(let i=0 ; i<magazine.length ; i++){
+        let char = magazine[i]
+        magazineCount[char] = (magazineCount[char] || 0) + 1;
     }
-    let magaHash ={}
-    for(let c of magazine){
-        magaHash[c] = (magaHash[c] || 0) +1;
+    for (let i = 0; i < ransomNote.length; i++) {
+        let char = ransomNote[i];
+        if (!magazineCount[char]) return false;
+        magazineCount[char]--;
     }
-    for(let c of ransomNote){
-        if(!magaHash[c] || magaHash[c]<0 ){
-            return false
-        }
-         magaHash[c]--;
-    }
+
     return true
    
 };
